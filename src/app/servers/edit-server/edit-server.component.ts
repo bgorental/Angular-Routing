@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { ServersService } from '../servers.service';
 import { CanComponentDeactivate } from './can-deactivate-gaurd.service';
@@ -38,14 +38,14 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
-  // onEditServer(id: number){
-  //   this.router.navigate(['/servers', 5, 'edit'], {queryParams : {allowEdit : 1}, fragment:'loading'});
-  // }
+  onEditServer(id: number){
+    this.router.navigate(['/servers', 5, 'edit'], {queryParams : {allowEdit : 1}, fragment:'loading'});
+  }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if(!this.allowEdit){
       return true;
-    }if((this.serverName !== this.serverName || this.serverStatus !== this.serverStatus) && !this.changesSaved){
+    }if((this.serverName !== this.server.name || this.serverStatus !== this.server.status) && !this.changesSaved){
       return confirm("Do you want to discard the changes?");
     }else{
       return true;

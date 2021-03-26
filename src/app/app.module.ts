@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth-gaurd.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 //  const appRoutes : Routes = [
@@ -42,8 +43,9 @@ import { CanDeactivateGaurd } from './servers/edit-server/can-deactivate-gaurd.s
     UserComponent,
     EditServerComponent,
     ServerComponent,
+    ErrorPageComponent,
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     FormsModule,
     // RouterModule.forRoot(appRoutes),
